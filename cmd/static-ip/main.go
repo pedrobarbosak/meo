@@ -48,7 +48,7 @@ func main() {
 		ctx, cancel := context.WithTimeout(context.Background(), time.Second*10)
 
 		if err = meo.AssignStaticIP(ctx, mac, ip); err != nil {
-			log.Panicln(errors.New(err))
+			log.Println("Failed to assign static IP to", mac, "with error:", err)
 		}
 
 		cancel()

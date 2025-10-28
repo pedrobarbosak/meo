@@ -2,6 +2,7 @@ package meo
 
 import (
 	"context"
+	"fmt"
 	"net/http"
 
 	"github.com/pedrobarbosak/go-errors"
@@ -12,7 +13,8 @@ func (s *Service) AssignStaticIP(ctx context.Context, mac string, ip string) err
 		return errors.New("failed to login:", err)
 	}
 
-	url := s.hostname + "/location=dhcpdstaticlease.cmd"
+	params := fmt.Sprintf("?action=add&mac=%s&static_ip=%s&groupName=Default", mac, ip)
+	url := s.hostname + "/location=dhcpdstaticlease.cmd" + params
 	resp, err := s.doRequest(ctx, http.MethodGet, url, nil)
 	if err != nil {
 		return errors.New("failed to get dhcpdstaticlease:", err)
