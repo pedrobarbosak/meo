@@ -1,0 +1,21 @@
+{
+  "username": "meo",
+  "password": "meo",
+  "hostname": "192.168.1.254",
+  "wifi": {
+    "network": {
+      "ssid": "meo",
+      "password": "meo"
+    },
+    "2.4ghz": {
+      "bandwidth": 3,
+      "channel": 6,
+      "transmitPower": 100
+    },
+    "5ghz": {
+      "bandwidth": 7,
+      "channel": 100,
+      "transmitPower": 100
+    }
+  }
+}
